@@ -1,6 +1,6 @@
 import cv2 as cv
 
-img = cv.imread("images/tycan.jpg")
+img = cv.imread("../images/tycan.jpg")
 grey = cv.cvtColor(img, cv.COLOR_RGB2GRAY)
 blur = cv.GaussianBlur(img, (3, 3), 0)
 canny = cv.Canny(blur, 125, 175)

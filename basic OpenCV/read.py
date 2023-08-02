@@ -1,6 +1,6 @@
 import cv2 as cv
 
-img = cv.imread("images/tycan.jpg")
+img = cv.imread("../images/tycan.jpg")
 
 def resize(frame, scale=0.75):
     width = int(frame.shape[1] * scale)

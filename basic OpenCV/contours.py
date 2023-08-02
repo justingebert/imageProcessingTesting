@@ -1,7 +1,7 @@
 import cv2 as cv
 import numpy as np
 
-img = cv.imread("images/tycan.jpg")
+img = cv.imread("../images/tycan.jpg")
 img_gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 blank = np.zeros((img.shape[0],img.shape[1], 3), dtype="uint8")
 
