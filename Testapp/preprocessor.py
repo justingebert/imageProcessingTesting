@@ -91,3 +91,27 @@ class ImagePreprocessor:
 
         return line_image
 
+    def fill_digits():
+        import cv2
+
+        # Assuming you have a binary image from previous preprocessing steps
+        binary_image = cv2.imread('path_to_your_binary_image.jpg', cv2.IMREAD_GRAYSCALE)
+
+        # Find all the contours
+        contours, hierarchy = cv2.findContours(binary_image, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+
+        # Create a blank image to draw the filled contours
+        filled_image = binary_image.copy()
+
+        # Iterate through the contours and hierarchy
+        for i, (cnt, h) in enumerate(zip(contours, hierarchy[0])):
+            # If it's an external contour or if it doesn't have a parent (this means it's not an inner contour)
+            if h[3] == -1:
+                cv2.drawContours(filled_image, [cnt], 0, (255), thickness=cv2.FILLED)
+            else:
+                # If it's an inner contour, subtract it
+                cv2.drawContours(filled_image, [cnt], 0, (0), thickness=cv2.FILLED)
+
+
+
+
